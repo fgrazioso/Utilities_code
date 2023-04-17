@@ -3,19 +3,27 @@
 """
 script to transform a greyscale image in rigorously "black and white only"
 """
-
+from pathlib import Path
 from PIL import Image
 
-filepath = "/media/fabio/X-Bio_Data/HED-Unet_train_test/gt_copy/test.tif"
+dirpath = Path("/media/fabio/X-Bio_Data/HED-Unet_train_test/gt")
+
+thr = 127
+fn = lambda x : 255 if x > thr else 0
 
 
-with Image.open(filepath) as loaded_img:
-    loaded_img = raster.read()
-    #loaded_img = loaded_img.convert('RGB')
+for filepath in dirpath.rglob( "*.tif" ):
 
+    loaded_img = Image.open(filepath)
 
-        thr = 127
-        fn = lambda x : 255 if x > thr else 0
-        converted_img = loaded_img.convert('L').point(fn, mode='1')
-        ###
- 
+    converted_img = loaded_img.convert('L').point(fn, mode='1')
+
+    converted_img.save(filepath)
+        
+
+###
+#for x in range(H):
+    #for y in range(W):
+        #if data[x][y] > 127:
+            #data[x][y] = 255
+        #else: data[x][y] = 0
