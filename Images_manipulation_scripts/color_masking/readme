@@ -1,0 +1,4 @@
+those three scripts are part of (old) microfluidic grooves python Deep Learning code.
+
+In particular, this code was used in an old situation, where (with Keras) I was able to train only the "old version" of microfluidic images, without the orange tint.
+So this scripts were used to preprocess the images, and transform the hue and the contrast, to make them similar to the one used for the training.
