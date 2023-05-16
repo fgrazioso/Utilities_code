@@ -6,13 +6,13 @@ script to transform a greyscale image in rigorously "black and white only"
 from pathlib import Path
 from PIL import Image
 
-dirpath = Path("/media/fabio/X-Bio_Data/HED-Unet_train_test/gt")
+dirpath = Path("/media/fabio/X-Bio_Data/HED-UNet_train/gt")
 
 thr = 127
 fn = lambda x : 255 if x > thr else 0
 
 
-for filepath in dirpath.rglob( "*.tif" ):
+for filepath in dirpath.rglob( "*.png" ):
 
     loaded_img = Image.open(filepath)
 
