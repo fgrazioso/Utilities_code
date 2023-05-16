@@ -92,6 +92,7 @@ class MainWindow(QMainWindow):
         self.outExt.addItem("png")
         self.outExt.addItem("jpg")
         self.outExt.addItem("bmp")
+        self.outExt.addItem("tif")
         self.outExt.setToolTip("Extension for the output files.")           
         
         rownum += 1
