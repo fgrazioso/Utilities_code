@@ -20,7 +20,7 @@ import torch
 
 
 
-checkpt_path = Path("/home/fabio/Documents/X-Bio/lab/Leaves/ML_data/NN_training/NN_training_131times6_leaves_epochs-650_lrate_0p001_int-res_1024-1024.pth")
+checkpt_path = Path("/home/fabio/Documents/X-Bio/lab/HED_UNet_benchmarking/python_code_HED_UNet/logs/2023-04-28_12-12-20/checkpoints/320.pt")
 
 
 if torch.cuda.is_available():
@@ -62,6 +62,8 @@ plt.xlabel('epoch', size = "20")
 plt.ylabel('loss', size = "20")
 ax.plot(loss_list, color="blue", label = 'train', linewidth=2)  #loss_list[1:]
 ax.plot(val_loss_list, color="red", label = 'valid', linewidth=2) # val_loss_list[1:]
+
+plt.xlim([0, 320])
 
 #save_path = data_path.parent.absolute() / nameplot 
 #plt.savefig(save_path)
