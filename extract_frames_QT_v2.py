@@ -116,6 +116,16 @@ class MainWindow(QMainWindow):
         
         rownum += 1
         
+        self.timeoffset = QLineEdit()
+        layout.addWidget(self.timeoffset, rownum, 1)
+        self.timeoffset.setToolTip("In this field the user can write\nan offset, in milliseconds, which will be added to the\ntimestamps from the external file.") 
+        self.timeoffset.setText("0")
+        
+        layout.addWidget(QLabel("time offset"), rownum, 2)
+        
+        
+        rownum += 1
+        
   
         
         self.inputbox2 = QLineEdit()
@@ -235,6 +245,8 @@ class MainWindow(QMainWindow):
         
 
         timestamps_array = np.loadtxt(str(self.inputbox2.text()))
+        
+        timestamps_array = timestamps_array +  int(self.timeoffset.text() )
         
         print(f"timestaps array = {timestamps_array}")
         
